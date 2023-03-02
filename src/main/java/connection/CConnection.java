@@ -1,3 +1,5 @@
+package connection;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -14,7 +16,7 @@ public class CConnection {
         Connection conn= DriverManager.getConnection(url,user,passwd);
         // 3. Construir comandos SQL
         Statement state=conn.createStatement();
-        String s="insert into Table_Tasks (Name, Description, StartDate, FinishDate) values ( 'correr','gimnasio','2022-11-30', '2022-11-30')";
+        String s="insert into Table_Tasks (Name, Description, StartDate, FinishDate) values ( 'planchar','gimnasio','2022-11-30', '2022-11-30')";
         state.executeUpdate(s);
     }
 }
