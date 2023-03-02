@@ -10,13 +10,13 @@ public class CConnection {
         // 1. Cargue el controlador de acceso a datos
         Class.forName("com.mysql.cj.jdbc.Driver");
         // 2. Conéctese a la "biblioteca" de datos
-        String url = "jdbc:mysql://localhost:3306/ToDoListJava";
+        String url = "jdbc:mysql://localhost:3306/Agenda";
         String user= "root";
         String passwd= "Fedorizo88";
         Connection conn= DriverManager.getConnection(url,user,passwd);
         // 3. Construir comandos SQL
         Statement state=conn.createStatement();
-        String s="insert into Table_Tasks (Name, Description, StartDate, FinishDate) values ( 'planchar','gimnasio','2022-11-30', '2022-11-30')";
+        String s="insert into ListaContactos (Name, Surname, Telephone, Mail) values ( 'Aurino','Llera',669541547, 'aurinollera@hotmail.com')";
         state.executeUpdate(s);
     }
 }
