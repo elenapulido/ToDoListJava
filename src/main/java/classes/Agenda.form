@@ -58,10 +58,10 @@
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-10449763"/>
+          <background color="-5181953"/>
           <enabled value="false"/>
           <font name="Helvetica Neue" size="12" style="0"/>
-          <foreground color="-1"/>
+          <foreground color="-16777216"/>
           <text value="Añadir"/>
         </properties>
       </component>
@@ -70,10 +70,10 @@
           <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-10449763"/>
+          <background color="-5181953"/>
           <enabled value="false"/>
           <font name="Helvetica Neue" size="12" style="0"/>
-          <foreground color="-1"/>
+          <foreground color="-16777216"/>
           <text value="Editar"/>
         </properties>
       </component>
@@ -82,10 +82,10 @@
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-10449763"/>
+          <background color="-5181953"/>
           <enabled value="false"/>
           <font name="Helvetica Neue" size="12" style="0"/>
-          <foreground color="-1"/>
+          <foreground color="-16777216"/>
           <text value="Consultar"/>
         </properties>
       </component>
@@ -94,10 +94,10 @@
           <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-10449763"/>
+          <background color="-5181953"/>
           <enabled value="false"/>
           <font name="Helvetica Neue" size="12" style="0"/>
-          <foreground color="-1"/>
+          <foreground color="-16777216"/>
           <text value="Eliminar"/>
         </properties>
       </component>
