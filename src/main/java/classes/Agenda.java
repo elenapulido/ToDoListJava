@@ -106,85 +106,67 @@ public class Agenda extends JFrame{
 
         }
     }
-    public void edit () throws SQLException {
+    public void edit() throws SQLException {
         connect();
 
-            String id = IdText.getText();
-            String Name = NameText.getText();
-            String Surname = SurnameText.getText();
-            String Telephone = TelephoneText.getText();
-            String Mail = MailText.getText();
 
-            if (Name == null || Name.isEmpty() || Name.trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please Enter Name");
-                NameText.requestFocus();
-                return;
-            }
-            if (Surname == null || Surname.isEmpty() || Surname.trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please Enter Surname");
-                SurnameText.requestFocus();
-                return;
-            }
-            if (Telephone == null || Telephone.isEmpty() || Telephone.trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please Enter Telephone");
-                TelephoneText.requestFocus();
-                return;
-            }
-            if (Mail == null || Mail.isEmpty() || Mail.trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please Enter Mail");
-                MailText.requestFocus();
-                return;
+        int id = Integer.parseInt(IdText.getText());
+        String Name = NameText.getText().trim();
+        String Surname = SurnameText.getText().trim();
+        int Telephone = Integer.parseInt(TelephoneText.getText());
+        String Mail = MailText.getText().trim();
+
+
+        if (Name.isEmpty() || Surname.isEmpty() || TelephoneText.getText().isEmpty()|| Mail.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill in all required fields.");
+            return;
         }
 
-            if (!IdText.getText().isEmpty()) {
-                try {
-                    String sql = ("UPDATE ListaContactos SET  Name=?,Surname=?,Telephone=?,Mail=?  WHERE id=?");
-                    ps = con.prepareStatement(sql);
-                    ps.setInt(1, Integer.parseInt(IdText.getText()));
-                    ps.setString(2, NameText.getText() );
-                    ps.setString(3, SurnameText.getText());
-                    ps.setInt(4, Integer.parseInt(TelephoneText.getText()));
-                    ps.setString(5, MailText.getText());
-                    ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Data Update Success");
-                    clear();
+
+        String sql = ("UPDATE ListaContactos SET Name=?, Surname=?, Telephone=?, Mail=? WHERE id=?");
+        ps = con.prepareStatement(sql);
+        ps.setString(1, Name);
+        ps.setString(2, Surname);
+        ps.setInt(3, Telephone);
+        ps.setString(4, Mail);
+        ps.setInt(5, id);
 
 
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-            }
+        if (ps.executeUpdate() > 0) {
+            JOptionPane.showMessageDialog(null, "Data updated successfully.");
+            clear();
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to update data.");
+        }
     }
-
-
 
     public void delete() throws SQLException {
         connect();
 
-            String id = IdText.getText();
-                if (!IdText.getText().isEmpty()) {
+        int id = Integer.parseInt(IdText.getText());
 
-                    int result = JOptionPane.showConfirmDialog(null, "Sure? You want to Delete?", "Delete",
-                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-
-                    if (result == JOptionPane.YES_OPTION) {
-                        try {
-                            String sql = "delete from users where ID=?";
-                            ps = con.prepareStatement(sql);
-                            ps.setString(1, id);
-                            ps.executeUpdate();
-                            JOptionPane.showMessageDialog(null, "Data Deleted Success");
-                            clear();
+        if (IdText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter an ID.");
+            return;
+        }
 
 
-                        } catch (SQLException e1) {
-                            e1.printStackTrace();
-                        }
-                    }
-                }
+        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this record?", "Delete", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
 
+            String sql = ("DELETE FROM ListaContactos WHERE id=?");
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+
+
+            if (ps.executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(null, "Data deleted successfully.");
+                clear();
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to delete data.");
             }
-
+        }
+    }
 
 public static void main(String[]args){
         Agenda f = new Agenda();
