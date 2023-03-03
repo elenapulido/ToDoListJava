@@ -143,7 +143,9 @@ public class Agenda extends JFrame{
     public void delete() throws SQLException {
         connect();
 
+
         int id = Integer.parseInt(IdText.getText());
+
 
         if (IdText.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter an ID.");

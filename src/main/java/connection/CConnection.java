@@ -12,7 +12,7 @@ public class CConnection {
         // 2. Conéctese a la "biblioteca" de datos
         String url = "jdbc:mysql://localhost:3306/Agenda";
         String user= "root";
-        String passwd= "Fedorizo88";
+        String passwd= "******";
         Connection conn= DriverManager.getConnection(url,user,passwd);
         // 3. Construir comandos SQL
         Statement state=conn.createStatement();
